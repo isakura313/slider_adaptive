@@ -1,13 +1,13 @@
-let slider = $('.slider');
-let sliderLenta = slider.find('.slider-lenta');
-let sliderItems = slider.find('.slider-lenta-item.real');
-sliderLenta.css('width', (sliderItems.length+2) * 100 +"%");
-let sliderBullets = slider.find('.slider-bullets div');
+let slider = $('.slider');  //получение общего слайдера
+let sliderLenta = slider.find('.slider-lenta'); // общая лента
+let sliderItems = slider.find('.slider-lenta-item.real'); // получаем настоящие элементы
+sliderLenta.css('width', (sliderItems.length+2) * 100 +"%"); // отрисовка всей ширины
+let sliderBullets = slider.find('.slider-bullets div'); // здесь у нас буллетсы
 
 
-let nowShowIndex = 0;
+let nowShowIndex = 0; // наш изначальный индекс
 
-slider.find('.slider-arrow-left').click(function(){
+slider.find('.slider-arrow-left').click(function(){   
     if(sliderLenta.hasClass('animated')){
         return;
     }
@@ -23,12 +23,12 @@ slider.find('.slider-arrow-left').click(function(){
             nowShowIndex = sliderItems.length - 1;
             sliderLenta.css('left', -100 * (nowShowIndex + 1) +"%");
             sliderLenta.removeClass('animated');
+            for (let i = 0; i < sliderBullets.length; i++) {
+                sliderBullets[i].style.backgroundColor = "white";
+            }
+        
+            sliderBullets[nowShowIndex].style.backgroundColor = "blue";
         });
-        // for (let i = 0; i < sliderBullets.length; i++) {
-        //     sliderBullets[i].style.backgroundColor = "white";
-        // }
-    
-        // sliderBullets[nowShowIndex].style.backgroundColor = "blue";
      } else{
             nowShowIndex = nowShowIndex - 1;
             sliderLenta.animate({
@@ -37,11 +37,11 @@ slider.find('.slider-arrow-left').click(function(){
                 sliderLenta.removeClass('animated');
             })
         }
-        // for (let i = 0; i < sliderBullets.length; i++) {
-        //     sliderBullets[i].style.backgroundColor = "white";
-        // }
+        for (let i = 0; i < sliderBullets.length; i++) {
+            sliderBullets[i].style.backgroundColor = "white";
+        }
     
-        // sliderBullets[nowShowIndex].style.backgroundColor = "blue";
+        sliderBullets[nowShowIndex].style.backgroundColor = "blue";
 });
 
 
@@ -60,14 +60,14 @@ slider.find('.slider-arrow-right').click(function(){
             nowShowIndex = 0;
             sliderLenta.css('left', -100 * (nowShowIndex + 1) +"%");
             sliderLenta.removeClass('animated');
+        for (let i = 0; i < sliderBullets.length; i++) {
+            sliderBullets[i].style.backgroundColor = "white";
+        }
+        sliderBullets[nowShowIndex].style.backgroundColor = "blue";
         });
         if(sliderLenta.hasClass('animated')){
             return;
         }
-        // for (let i = 0; i < sliderBullets.length; i++) {
-        //     sliderBullets[i].style.backgroundColor = "white";
-        // }
-        // sliderBullets[nowShowIndex].style.backgroundColor = "blue";
 
      } else{
             nowShowIndex = nowShowIndex + 1;
@@ -75,17 +75,15 @@ slider.find('.slider-arrow-right').click(function(){
                 left: -100 * (nowShowIndex + 1) + "%"
             }, 600, function(){
                 sliderLenta.removeClass('animated');
+            for (let i = 0; i < sliderBullets.length; i++) {
+                sliderBullets[i].style.backgroundColor = "white";
+            }
+            sliderBullets[nowShowIndex].style.backgroundColor = "blue";
             })
             if(sliderLenta.hasClass('animated')){
                 return;
             }
-
-
         }
-        // for (let i = 0; i < sliderBullets.length; i++) {
-        //     sliderBullets[i].style.backgroundColor = "white";
-        // }
-        // sliderBullets[nowShowIndex].style.backgroundColor = "blue";
 });
 
 
@@ -113,9 +111,9 @@ sliderBullets.click(function(){
 
 
 
-setInterval(() => {
-    slider.find('.slider-arrow-right').click()
-}, 2000);
+// setInterval(() => {
+//     slider.find('.slider-arrow-right').click()
+// }, 2000);
 
 
 
