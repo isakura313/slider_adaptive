@@ -1,0 +1,90 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1{
+    margin: 10px;
+}
+.slider{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border: 1px solid black;
+}
+.slider-lenta{
+    position: absolute;
+    left:-100%;
+    top:0;
+    height:inherit;
+    display: flex;
+}
+
+.slider-bullets{
+    position:absolute;
+    bottom:50px;
+    z-index: 50;
+}
+.slider-bullets button{
+    font-size: 30px;
+
+
+}
+.slider-lenta-item{
+    display: flex;
+    width: 100%;
+    height: inherit;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    background-size: cover;
+    background-position: center center;
+}
+.slider-lenta-item:nth-child(1){
+    display: flex;
+    /* background-color: green; */
+    background-image: url('https://images.pexels.com/photos/2835436/pexels-photo-2835436.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+.slider-lenta-item:nth-child(2){
+    /* background-color:blue; */
+    background-image: url('https://images.pexels.com/photos/2583853/pexels-photo-2583853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+.slider-lenta-item:nth-child(3){
+    /* background-color: red; */
+    background-image: url('https://images.pexels.com/photos/2854416/pexels-photo-2854416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+.slider-lenta-item:nth-child(4){
+    /* background-color: yellow; */
+    background-image: url('https://images.pexels.com/photos/2733163/pexels-photo-2733163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+.slider-lenta-item:nth-child(5){
+    background-color: orange;
+    background-image: url('https://images.pexels.com/photos/2956376/pexels-photo-2956376.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+}
+.slider-arrow-left{
+    position: absolute;
+    width: 15%;
+    background-color: blue;
+    opacity: 0.2;
+    top:0;
+    bottom: 0;
+    left:0;
+    cursor:pointer;
+}
+
+.slider-arrow-right{
+    position: absolute;
+    width: 15%;
+    background-color: red;
+    opacity: 0.2;
+    top:0;
+    bottom: 0;
+    right:0;
+    cursor:pointer;
+}
