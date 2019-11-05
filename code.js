@@ -80,19 +80,29 @@ arr_right.onclick = function () {
 };
 
 
-sliderBullets.onclick = function () {
-    if (sliderLenta.classList.contains('animated')) {
-        return;
-    }
+for (let i = 0; i < sliderBullets.length; i++) {
+    sliderBullets[i].onclick = function () {
+        console.log(sliderBullets[i]);
+        console.log(sliderBullets[i].getAttribute('id'));
+        if (sliderLenta.classList.contains('animated')) {
+            return;
+        }
     sliderLenta.classList.add('animated');
-    let bullet_index = sliderBullets.index($(this));
+    let bullet_index = sliderBullets[i].getAttribute('id');
     bullets_draw(bullet_index);
+    nowShowIndex = +bullet_index;
     $(sliderLenta).animate({
         left: -100 * (nowShowIndex + 1) + "%"
     }, 600, function () {
         sliderLenta.classList.remove('animated');
     })
 };
+    
+}
+
+
+
+    
 
 
 
