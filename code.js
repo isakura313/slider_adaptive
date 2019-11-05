@@ -9,8 +9,8 @@ let slider = document.querySelector('.slider'); //получение общег�
 let sliderLenta = slider.querySelector('.slider-lenta'); // общая лента
 let sliderItems = slider.querySelectorAll('.slider-lenta-item.real'); // получаем настоящие элементы
 let sliderBullets = document.querySelectorAll('.slider-bullets div'); // здесь у нас буллетсы
-let arr_left = slider.querySelector('.slider-arrow-left');
-let arr_right = slider.querySelector('.slider-arrow-right');
+let arr_left = slider.querySelector('#arr_left');
+let arr_right = slider.querySelector('#arr_right');
 sliderLenta.style.width = (sliderItems.length + 2) * 100 + "%"
 
 let nowShowIndex = 0; // наш изначальный индекс
@@ -102,8 +102,6 @@ sliderBullets.forEach(function (bullet) {
 
 
 
-
-
 // setInterval(() => {
 //     slider.find('.slider-arrow-right').click()
 // }, 2000);
@@ -114,7 +112,6 @@ function bullets_draw(show_index) {
     for (let i = 0; i < sliderBullets.length; i++) {
         sliderBullets[i].style.backgroundColor = "white";
     }
-
     sliderBullets[show_index].style.backgroundColor = "blue";
 }
 

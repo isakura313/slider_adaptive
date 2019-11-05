@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="style.css">
     <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous" defer></script>
+
     <script src="code.js" defer></script>
 </head>
 <body>
@@ -17,13 +19,13 @@
         <h1>Наш слайдер</h1>
         <div class="slider">
             <div class="slider-lenta">
-                <div class="slider-lenta-item" id="sl_4">4</div>
-                <div class="slider-lenta-item real" id="sl_0">0</div>
-                <div class="slider-lenta-item real" id="sl_1" >1</div>
-                <div class="slider-lenta-item real" id="sl_2">2</div>
-                <div class="slider-lenta-item real" id="sl_3">3</div>
-                <div class="slider-lenta-item real" id="sl_4">4</div>
-                <div class="slider-lenta-item" id="sl_0">0</div>
+                <div class="slider-lenta-item" id="sl_4"></div>
+                <div class="slider-lenta-item real" id="sl_0"></div>
+                <div class="slider-lenta-item real" id="sl_1" ></div>
+                <div class="slider-lenta-item real" id="sl_2"></div>
+                <div class="slider-lenta-item real" id="sl_3"></div>
+                <div class="slider-lenta-item real" id="sl_4"></div>
+                <div class="slider-lenta-item" id="sl_0"></div>
             </div>
             <div class="slider-bullets">
                 <div id="0"> </div>
@@ -32,8 +34,13 @@
                 <div id="3"> </div>
                 <div id="4"> </div>
             </div>
-            <div class="slider-arrow-left"></div>
-            <div class="slider-arrow-right"></div>
+            <div class="slider-arrow-left">
+                <i class="fas fa-arrow-left" id="arr_left"></i>
+
+            </div>
+            <div class="slider-arrow-right">
+                <i class="fas fa-arrow-right"id="arr_right" ></i>
+            </div>
         </div>
     </div>
 </body>
