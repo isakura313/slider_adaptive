@@ -9,14 +9,13 @@ let sliderItems = slider.find('.slider-lenta-item.real'); // получаем н
 sliderLenta.css('width', (sliderItems.length+2) * 100 +"%"); // отрисовка всей ширины
 let sliderBullets = slider.find('.slider-bullets div'); // здесь у нас буллетсы
 
+//название функции на английском и описывает некое действие
+
+
 
 let nowShowIndex = 0; // наш изначальный индекс
 //где-то здесь в общей прострнастве попробуем наполнить наши точки
-for (let i = 0; i < sliderBullets.length; i++) {
-    sliderBullets[i].style.backgroundColor = "white";
-}
-
-sliderBullets[nowShowIndex].style.backgroundColor = "blue";
+bullets_draw(nowShowIndex);
 
 slider.find('.slider-arrow-left').click(function(){   
     if(sliderLenta.hasClass('animated')){
@@ -34,11 +33,7 @@ slider.find('.slider-arrow-left').click(function(){
             nowShowIndex = sliderItems.length - 1;
             sliderLenta.css('left', -100 * (nowShowIndex + 1) +"%");
             sliderLenta.removeClass('animated');
-            for (let i = 0; i < sliderBullets.length; i++) {
-                sliderBullets[i].style.backgroundColor = "white";
-            }
-        
-            sliderBullets[nowShowIndex].style.backgroundColor = "blue";
+            bullets_draw(nowShowIndex);
         });
      } else{
             nowShowIndex = nowShowIndex - 1;
@@ -48,18 +43,11 @@ slider.find('.slider-arrow-left').click(function(){
                 sliderLenta.removeClass('animated');
             })
         }
-        for (let i = 0; i < sliderBullets.length; i++) {
-            sliderBullets[i].style.backgroundColor = "white";
-        }
-    
-        sliderBullets[nowShowIndex].style.backgroundColor = "blue";
+        bullets_draw(nowShowIndex);
 });
 
 
 slider.find('.slider-arrow-right').click(function(){
-
-
-    // sliderBullets[nowShowIndex].style.backgroundColor = "blue";
 
     sliderLenta.addClass('animated');
     if(nowShowIndex >= sliderItems.length - 1){
@@ -71,10 +59,7 @@ slider.find('.slider-arrow-right').click(function(){
             nowShowIndex = 0;
             sliderLenta.css('left', -100 * (nowShowIndex + 1) +"%");
             sliderLenta.removeClass('animated');
-        for (let i = 0; i < sliderBullets.length; i++) {
-            sliderBullets[i].style.backgroundColor = "white";
-        }
-        sliderBullets[nowShowIndex].style.backgroundColor = "blue";
+        bullets_draw(nowShowIndex);
         });
         if(sliderLenta.hasClass('animated')){
             return;
@@ -86,10 +71,7 @@ slider.find('.slider-arrow-right').click(function(){
                 left: -100 * (nowShowIndex + 1) + "%"
             }, 600, function(){
                 sliderLenta.removeClass('animated');
-            for (let i = 0; i < sliderBullets.length; i++) {
-                sliderBullets[i].style.backgroundColor = "white";
-            }
-            sliderBullets[nowShowIndex].style.backgroundColor = "blue";
+            bullets_draw(nowShowIndex)
             })
             if(sliderLenta.hasClass('animated')){
                 return;
@@ -105,14 +87,8 @@ sliderBullets.click(function(){
     sliderLenta.addClass('animated');
     let bullet_index = sliderBullets.index(   $(this) );
 
-    for (let i = 0; i < sliderBullets.length; i++) {
-        sliderBullets[i].style.backgroundColor = "white";
-        
-    }
-    sliderBullets[bullet_index].style.backgroundColor = "blue";
-
-
-    nowShowIndex = bullet_index;
+    bullets_draw(bullet_index);
+    
     sliderLenta.animate({
         left: -100 * (nowShowIndex + 1) + "%"
     }, 600, function(){
@@ -128,6 +104,13 @@ sliderBullets.click(function(){
 
 
 
+function bullets_draw(show_index){
+    for (let i = 0; i < sliderBullets.length; i++) {
+        sliderBullets[i].style.backgroundColor = "white";
+    }
+
+    sliderBullets[show_index].style.backgroundColor = "blue";
+}
 
 
 
