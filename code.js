@@ -6,44 +6,42 @@
 
 let slider = document.querySelector('.slider'); //получение общего слайдера
 let sliderLenta = slider.querySelector('.slider-lenta'); // общая лента
-let sliderItems = slider.querySelector('.slider-lenta-item.real'); // получаем настоящие элементы
+let sliderItems = slider.querySelectorAll('.slider-lenta-item.real'); // получаем настоящие элементы
 // sliderLenta.css('width', (sliderItems.length+2) * 100 +"%"); // отрисовка всей ширины
-sliderLenta.style.width = (sliderItems.length+2) *+"%";
-let sliderBullets = slider.querySelectorAll('.slider-bullets div'); // здесь у нас буллетсы
-
+sliderLenta.style.width = (sliderItems.length+2)*100 + "%"
+let sliderBullets = document.querySelectorAll('.slider-bullets div'); // здесь у нас буллетсы
+let arr_left = slider.querySelector('.slider-arrow-left');
 //название функции на английском и описывает некое действие
 
 
 
 let nowShowIndex = 0; // наш изначальный индекс
-//где-то здесь в общей прострнастве попробуем наполнить наши точки
-bullets_draw(nowShowIndex);
+bullets_draw(nowShowIndex); // изначальная отрисовка
 
-slider.querySelector('.slider-arrow-left').onclick = function(){
+arr_left.onclick = function(){
     if(sliderLenta.classList.contains('animated')){
         return;
     }
 
-
     sliderLenta.classList.add('animated');
-
     if(nowShowIndex <= 0){
         nowShowIndex = nowShowIndex - 1;
         
-        sliderLenta.animate({
+        $(sliderLenta).animate({
             left: -100 * (nowShowIndex + 1) + "%"
         }, 600, function(){
+
             nowShowIndex = sliderItems.length - 1;
-            sliderLenta.css('left', -100 * (nowShowIndex + 1) +"%");
-            sliderLenta.removeClass('animated');
+            sliderLenta.style.left = -100 * (nowShowIndex + 1) +"%";
+            sliderLenta.classList.remove('animated');
             bullets_draw(nowShowIndex);
         });
-     } else{
-            nowShowIndex = nowShowIndex - 1;
-            sliderLenta.animate({
-                left: -100 * (nowShowIndex + 1) + "%"
+    } else{
+        nowShowIndex = nowShowIndex - 1;
+        $(sliderLenta).animate({
+            left: -100 * (nowShowIndex + 1) + "%"
             }, 600, function(){
-                sliderLenta.removeClass('animated');
+            sliderLenta.classList.remove('animated');
             })
         }
         bullets_draw(nowShowIndex);

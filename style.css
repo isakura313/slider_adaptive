@@ -24,6 +24,7 @@ h1{
     top:0;
     height:inherit;
     display: flex;
+    /* width: 700%; */
 }
 
 .slider-bullets{
