@@ -1,3 +1,8 @@
+//нам нужно сделать плавную анимацию самих булетсов
+//сделать так, что бы при загрузке отображался первый кружочек
+//сделать общий рефакторинг кода
+
+
 let slider = $('.slider');  //получение общего слайдера
 let sliderLenta = slider.find('.slider-lenta'); // общая лента
 let sliderItems = slider.find('.slider-lenta-item.real'); // получаем настоящие элементы
@@ -6,6 +11,12 @@ let sliderBullets = slider.find('.slider-bullets div'); // здесь у нас 
 
 
 let nowShowIndex = 0; // наш изначальный индекс
+//где-то здесь в общей прострнастве попробуем наполнить наши точки
+for (let i = 0; i < sliderBullets.length; i++) {
+    sliderBullets[i].style.backgroundColor = "white";
+}
+
+sliderBullets[nowShowIndex].style.backgroundColor = "blue";
 
 slider.find('.slider-arrow-left').click(function(){   
     if(sliderLenta.hasClass('animated')){
